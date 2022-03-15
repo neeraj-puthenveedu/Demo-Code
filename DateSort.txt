@@ -1,0 +1,45 @@
+package com.company;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Scanner;
+
+public class DateSort {
+    public static void main(String[] args) throws ParseException {
+        Scanner sc =new Scanner(System.in);
+        Date date[];
+        String str[];
+        System.out.println("Enter no of dates ");
+        int i,n = sc.nextInt();
+        System.out.println("Enter the dates ");
+        str=new String[n];
+        date= new Date[n];
+        sc.nextLine();
+
+        for (i=0;i<n;i++)
+        {
+            str[i]=sc.nextLine();
+        }
+        SimpleDateFormat sobj = new SimpleDateFormat("dd-MM-yyyy");
+
+          for(i=0;i<n;i++)
+          {
+              date [i] = sobj.parse(str[i]);
+          }
+        Arrays.sort(date);
+
+        SimpleDateFormat sobj1 = new SimpleDateFormat("dd MMM yyyy");
+
+
+
+        for(Date date1 : date)
+          {
+              System.out.println(sobj1.format(date1));
+          }
+
+
+    }
+
+}
